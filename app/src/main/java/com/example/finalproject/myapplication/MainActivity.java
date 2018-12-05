@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.RatingBar;
 
 public class MainActivity extends AppCompatActivity {
+    //This is what will crash the app
     /*
     RatingBar strBar = (RatingBar) findViewById(R.id.ratingBar01);
     RatingBar agiBar = (RatingBar) findViewById(R.id.ratingBar02);
@@ -16,10 +17,12 @@ public class MainActivity extends AppCompatActivity {
     RatingBar tncBar = (RatingBar) findViewById(R.id.ratingBar05);
     */
 
+    //Example database link
     /*
     https://dota2.gamepedia.com/Table_of_hero_attributes
      */
 
+    //int to store ratings
     /*
     private int str = (int) strBar.getRating();
     private int agi = (int) agiBar.getRating();
@@ -27,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
     private int spd = (int) spdBar.getRating();
     private int tnc = (int) tncBar.getRating();
 
+    //get function to be used in result.class
     public int[] getStats() {
         int[] stats = {str, agi, itl, spd, tnc};
         return stats;
@@ -38,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //search button and screen swap
         Button search = findViewById(R.id.button01);
         search.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -14,9 +14,12 @@ public class Result extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_1);
         ((TextView) findViewById(R.id.textView11)).setText("ratingbar code always crashes, please send help ._.");
+
+        //suppose to make the TextView here return info base on rating inputs
         //int[] intResult ={(int) strBar.getRating(), (int) agiBar.getRating(), (int) itlBar.getRating(), (int) spdBar.getRating(), (int) tncBar.getRating()};
         //String result = "Return some results with strength at " + intResult[0] + ", agility at " + intResult[1] + ", intellect at " + intResult[2] + ", speed at " + intResult[3] + ", and tenacity at " + intResult[4];
 
+        //return button and screen swap
         Button next = findViewById(R.id.button02);
         next.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
