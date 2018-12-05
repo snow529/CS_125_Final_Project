@@ -17,6 +17,10 @@ public class MainActivity extends AppCompatActivity {
     */
 
     /*
+    https://dota2.gamepedia.com/Table_of_hero_attributes
+     */
+
+    /*
     private int str = (int) strBar.getRating();
     private int agi = (int) agiBar.getRating();
     private int itl = (int) itlBar.getRating();
