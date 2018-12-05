@@ -17,8 +17,6 @@ public class Result extends AppCompatActivity {
         //int[] intResult ={(int) strBar.getRating(), (int) agiBar.getRating(), (int) itlBar.getRating(), (int) spdBar.getRating(), (int) tncBar.getRating()};
         //String result = "Return some results with strength at " + intResult[0] + ", agility at " + intResult[1] + ", intellect at " + intResult[2] + ", speed at " + intResult[3] + ", and tenacity at " + intResult[4];
 
-
-
         Button next = findViewById(R.id.button02);
         next.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
