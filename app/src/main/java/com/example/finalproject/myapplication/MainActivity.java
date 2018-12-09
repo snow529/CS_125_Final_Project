@@ -4,11 +4,8 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.TextView;
 import android.widget.Button;
 import android.widget.RatingBar;
-
-import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -19,6 +16,7 @@ public class MainActivity extends AppCompatActivity {
     private RatingBar tncBar;
     private Button search;
 
+    // inputs from users will be retained in this int array.
     int[] stats = new int[5];
 
     //Example database link
@@ -37,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
         spdBar = findViewById(R.id.ratingBar04);
         tncBar = findViewById(R.id.ratingBar05);
 
-        //search button and screen swap
+        // move to the result screen with the data of stats.
         search = findViewById(R.id.button01);
         search.setOnClickListener(new View.OnClickListener() {
             @Override
