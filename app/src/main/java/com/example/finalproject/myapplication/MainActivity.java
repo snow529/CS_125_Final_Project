@@ -12,11 +12,14 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-    private static ArrayList<Integer> stats = new ArrayList<>();
+    private RatingBar strBar;
+    private RatingBar agiBar;
+    private RatingBar itlBar;
+    private RatingBar spdBar;
+    private RatingBar tncBar;
+    private Button search;
 
-    public static ArrayList<Integer> getStats() {
-        return stats;
-    }
+    int[] stats = new int[5];
 
     //Example database link
     /*
@@ -28,26 +31,26 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
+        strBar = findViewById(R.id.ratingBar01);
+        agiBar = findViewById(R.id.ratingBar02);
+        itlBar = findViewById(R.id.ratingBar03);
+        spdBar = findViewById(R.id.ratingBar04);
+        tncBar = findViewById(R.id.ratingBar05);
 
         //search button and screen swap
-        Button search = findViewById(R.id.button01);
+        search = findViewById(R.id.button01);
         search.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                RatingBar strBar = (RatingBar) findViewById(R.id.ratingBar01);
-                RatingBar agiBar = (RatingBar) findViewById(R.id.ratingBar02);
-                RatingBar itlBar = (RatingBar) findViewById(R.id.ratingBar03);
-                RatingBar spdBar = (RatingBar) findViewById(R.id.ratingBar04);
-                RatingBar tncBar = (RatingBar) findViewById(R.id.ratingBar05);
-                stats.add((int) strBar.getRating());
-                stats.add((int) agiBar.getRating());
-                stats.add((int) itlBar.getRating());
-                stats.add((int) spdBar.getRating());
-                stats.add((int) tncBar.getRating());
+
+                stats[0] = (int) strBar.getRating();
+                stats[1] = (int) agiBar.getRating();
+                stats[2] = (int) itlBar.getRating();
+                stats[3] = (int) spdBar.getRating();
+                stats[4] = (int) tncBar.getRating();
 
                 Intent myIntent = new Intent(view.getContext(), Result.class);
-                myIntent.putExtra("STATS", getStats());
+                myIntent.putExtra("STATS", stats);
                 startActivity(myIntent);
             }
         });

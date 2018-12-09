@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
-import android.widget.RatingBar;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -16,11 +15,9 @@ public class Result extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_1);
 
-
-
         TextView result = findViewById(R.id.textView11);
-        ArrayList<Integer> stats = getIntent().getIntegerArrayListExtra("STATS");
-        result.setText("str is " + stats.get(0));
+        int[] stats = getIntent().getIntArrayExtra("STATS");
+        result.setText("str is " + stats[0]);
 
         //suppose to make the TextView here return info base on rating inputs
         //int[] intResult ={(int) strBar.getRating(), (int) agiBar.getRating(), (int) itlBar.getRating(), (int) spdBar.getRating(), (int) tncBar.getRating()};
