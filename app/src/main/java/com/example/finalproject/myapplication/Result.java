@@ -20,16 +20,9 @@ public class Result extends AppCompatActivity {
         userInputs = findViewById(R.id.textView11);
         result = findViewById(R.id.textView12);
         inputs = getIntent().getIntArrayExtra("STATS");
-
-        String show = "Return some results with " + inputs[0] + ", " + inputs[1] + ", " + inputs[2] + ", " + inputs[3] + ", " + inputs[4];
-
-        userInputs.setText(show);
+        userInputs.setText("Return a result with " + inputs[0] + ", " + inputs[1] + ", " + inputs[2] + ", " + inputs[3] + ", " + inputs[4]);
+        // show a character who matches user inputs.
         result.setText(searchCharacters().getName());
-
-
-        //suppose to make the TextView here return info base on rating inputs
-        //int[] intResult ={(int) strBar.getRating(), (int) agiBar.getRating(), (int) itlBar.getRating(), (int) spdBar.getRating(), (int) tncBar.getRating()};
-        //String result = "Return some results with strength at " + intResult[0] + ", agility at " + intResult[1] + ", intellect at " + intResult[2] + ", speed at " + intResult[3] + ", and tenacity at " + intResult[4];
 
         //return button and screen swap
         Button next = findViewById(R.id.button02);
@@ -43,6 +36,8 @@ public class Result extends AppCompatActivity {
         });
 
     }
+
+    // helper method which computes the difference between given two int arrays.
     public int difference(int[] first, int[] second) {
         int result = 0;
         for (int i = 0; i < first.length; i++) {
