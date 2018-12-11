@@ -5,7 +5,7 @@ import java.util.ArrayList;
 // this class creates and maintains characters in Pokemon.
 public class Character {
 
-    private static String[][] pokemons = {
+    private static final String[][] pokemons = {
             {"Venusaur", "003", "80", "82", "83", "100", "100", "80", "525"},
             {"Venusaur (Mega Venusaur)", "003M", "80", "100", "123", "122", "120", "80", "625"},
             {"Charizard", "006", "78", "84", "78", "109", "85", "100", "534"},
@@ -559,10 +559,17 @@ public class Character {
     public static final Character WARIO = new Character("wario", wario, characters);
     */
 
-    public String getName() {
-        return name;
+    public static String getName(int index) {
+        return pokemons[index][0];
     }
-    public int[] getStats() {
+    public static int[] getStats(int index) {
+        int[] stats = new int[6];
+        for (int i = 0; i < 6; i++) {
+            stats[i] = Integer.parseInt(pokemons[index][i + 2]);
+        }
         return stats;
+    }
+    public static int getLength() {
+        return pokemons.length;
     }
 }

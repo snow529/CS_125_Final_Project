@@ -9,15 +9,16 @@ import android.widget.RatingBar;
 
 public class MainActivity extends AppCompatActivity {
 
-    private RatingBar strBar;
-    private RatingBar agiBar;
-    private RatingBar itlBar;
+    private RatingBar hpBar;
+    private RatingBar atkBar;
+    private RatingBar defBar;
+    private RatingBar satkBar;
+    private RatingBar sdefBar;
     private RatingBar spdBar;
-    private RatingBar tncBar;
     private Button search;
 
     // inputs from users will be retained in this int array.
-    int[] stats = new int[5];
+    int[] stats = new int[6];
 
     //Example database link
     /*
@@ -29,11 +30,12 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        strBar = findViewById(R.id.ratingBar01);
-        agiBar = findViewById(R.id.ratingBar02);
-        itlBar = findViewById(R.id.ratingBar03);
-        spdBar = findViewById(R.id.ratingBar04);
-        tncBar = findViewById(R.id.ratingBar05);
+        hpBar = findViewById(R.id.ratingBar01);
+        atkBar = findViewById(R.id.ratingBar02);
+        defBar = findViewById(R.id.ratingBar03);
+        satkBar = findViewById(R.id.ratingBar04);
+        sdefBar = findViewById(R.id.ratingBar05);
+        spdBar = findViewById(R.id.ratingBar06);
 
         // move to the result screen with the data of stats.
         search = findViewById(R.id.button01);
@@ -41,11 +43,12 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                stats[0] = (int) strBar.getRating();
-                stats[1] = (int) agiBar.getRating();
-                stats[2] = (int) itlBar.getRating();
-                stats[3] = (int) spdBar.getRating();
-                stats[4] = (int) tncBar.getRating();
+                stats[0] = (int) hpBar.getRating();
+                stats[1] = (int) atkBar.getRating();
+                stats[2] = (int) defBar.getRating();
+                stats[3] = (int) satkBar.getRating();
+                stats[4] = (int) sdefBar.getRating();
+                stats[5] = (int) spdBar.getRating();
 
                 Intent myIntent = new Intent(view.getContext(), Result.class);
                 myIntent.putExtra("STATS", stats);
