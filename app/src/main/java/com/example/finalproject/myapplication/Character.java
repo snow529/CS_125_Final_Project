@@ -1,11 +1,11 @@
 package com.example.finalproject.myapplication;
 
-import java.util.ArrayList;
-
 // this class creates and maintains characters in Pokemon.
 public class Character {
 
+    // database of pokemons.
     private static final String[][] pokemons = {
+            //{name, index, hp, atk, def, satk, sdef, spd, total}
             {"Venusaur", "003", "80", "82", "83", "100", "100", "80", "525"},
             {"Venusaur (Mega Venusaur)", "003M", "80", "100", "123", "122", "120", "80", "625"},
             {"Charizard", "006", "78", "84", "78", "109", "85", "100", "534"},
@@ -541,34 +541,58 @@ public class Character {
             {"Zeraora", "807", "88", "112", "75", "102", "80", "143", "600"}
             };
 
-    /*
-    public static ArrayList<Character> characters = new ArrayList<>();
-
-    private String name;
-    private int[] stats;
-    // private ** picture;
-
-    private Character(String setName, int[] setStats, ArrayList<Character> characters) {
-        name = setName;
-        stats = setStats;
-        characters.add(this);
-    }
-
-    public static final Character mario = new Character("mario", mario, characters);
-    public static final Character PEACH = new Character("peach", peach, characters);
-    public static final Character WARIO = new Character("wario", wario, characters);
-    */
 
     public static String getName(int index) {
         return pokemons[index][0];
     }
-    public static int[] getStats(int index) {
+
+    // get pokemon's stats[hp, atk, def, satk, sdef, spd]
+    public static int[] realStats(int index) {
         int[] stats = new int[6];
         for (int i = 0; i < 6; i++) {
             stats[i] = Integer.parseInt(pokemons[index][i + 2]);
         }
         return stats;
     }
+
+    // get pokemon's stats in 0-5 ratings
+    public static int[] getStats(int index) {
+        int[] stats = new int[6];
+        // convert hp, atk, def, satk and sdef into 0-5 ratings
+        for (int i = 0; i < 5; i++) {
+            int value = realStats(index)[i];
+            if (value >= 0 && value <= 49) {
+                stats[i] = 0;
+            } else if (value >= 50 && value <= 74) {
+                stats[i] = 1;
+            } else if (value >= 75 && value <= 99) {
+                stats[i] = 2;
+            } else if (value >= 100 && value <= 124) {
+                stats[i] = 3;
+            } else if (value >= 125 && value <= 149) {
+                stats[i] = 4;
+            } else {
+                stats[i] = 5;
+            }
+        }
+        // convert speed into 0-5 ratings.
+        int value = realStats(index)[5];
+        if (value >= 0 && value <= 29) {
+            stats[5] = 0;
+        } else if (value >= 30 && value <= 54) {
+            stats[5] = 1;
+        } else if (value >= 55 && value <= 79) {
+            stats[5] = 2;
+        } else if (value >= 80 && value <= 104) {
+            stats[5] = 3;
+        } else if (value >= 105 && value <= 129) {
+            stats[5] = 4;
+        } else {
+            stats[5] = 5;
+        }
+        return stats;
+    }
+
     public static int getLength() {
         return pokemons.length;
     }
