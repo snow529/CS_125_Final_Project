@@ -9,36 +9,23 @@ import android.widget.RatingBar;
 
 public class MainActivity extends AppCompatActivity {
 
-    private RatingBar hpBar;
-    private RatingBar atkBar;
-    private RatingBar defBar;
-    private RatingBar satkBar;
-    private RatingBar sdefBar;
-    private RatingBar spdBar;
-    private Button search;
-
     // inputs from users will be retained in this int array.
     int[] stats = new int[6];
-
-    //Example database link
-    /*
-    https://dota2.gamepedia.com/Table_of_hero_attributes
-     */
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        hpBar = findViewById(R.id.ratingBar01);
-        atkBar = findViewById(R.id.ratingBar02);
-        defBar = findViewById(R.id.ratingBar03);
-        satkBar = findViewById(R.id.ratingBar04);
-        sdefBar = findViewById(R.id.ratingBar05);
-        spdBar = findViewById(R.id.ratingBar06);
+        final RatingBar hpBar = findViewById(R.id.ratingBar01);
+        final RatingBar atkBar = findViewById(R.id.ratingBar02);
+        final RatingBar defBar = findViewById(R.id.ratingBar03);
+        final RatingBar satkBar = findViewById(R.id.ratingBar04);
+        final RatingBar sdefBar = findViewById(R.id.ratingBar05);
+        final RatingBar spdBar = findViewById(R.id.ratingBar06);
 
         // move to the result screen with the data of stats.
-        search = findViewById(R.id.button01);
+        Button search = findViewById(R.id.button01);
         search.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

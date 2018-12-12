@@ -1,54 +1,89 @@
 package com.example.finalproject.myapplication;
 
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
-
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.MalformedURLException;
-import java.net.URL;
+import android.widget.ImageView;
 
 public class Result extends AppCompatActivity {
 
-    private TextView userInputs;
-    private TextView result1;
-    private TextView result2;
-    private TextView result3;
     private int inputs[];
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_1);
 
-        //top TextView of the result screen and its content.
-        userInputs = findViewById(R.id.textView10);
         inputs = getIntent().getIntArrayExtra("STATS");
-        userInputs.setText("Your match for " + inputs[0] + ", " + inputs[1] + ", " + inputs[2] + ", " + inputs[3] + ", " + inputs[4] + ", " + inputs[5] + " are:");
 
-        //three TextViews of the result screen that is used to display the matching pokemon
-        result1 = findViewById(R.id.textView11);
-        result1.setText(Character.getName(searchCharacters()[0]));
-        result2 = findViewById(R.id.textView12);
-        result2.setText(Character.getName(searchCharacters()[1]));
-        result3 = findViewById(R.id.textView13);
-        result3.setText(Character.getName(searchCharacters()[2]));
+        TextView userInputs = findViewById(R.id.textView11);
+        userInputs.setText("Return a result with (" + inputs[0] + ", " + inputs[1] + ", " + inputs[2] + ", " + inputs[3] + ", " + inputs[4] + ", " + inputs[5] + ")");
+
+        // views for showing the data of the most matched pokemon
+        ImageView image1 = findViewById(R.id.image1);
+        TextView name1 = findViewById(R.id.text10);
+        TextView hp1 = findViewById(R.id.text11);
+        TextView atk1 = findViewById(R.id.text12);
+        TextView def1 = findViewById(R.id.text13);
+        TextView satk1 = findViewById(R.id.text14);
+        TextView sdef1 = findViewById(R.id.text15);
+        TextView spd1 = findViewById(R.id.text16);
+
+        // views for showing the data of the second most matched pokemon
+        ImageView image2 = findViewById(R.id.image2);
+        TextView name2 = findViewById(R.id.text20);
+        TextView hp2 = findViewById(R.id.text21);
+        TextView atk2 = findViewById(R.id.text22);
+        TextView def2 = findViewById(R.id.text23);
+        TextView satk2 = findViewById(R.id.text24);
+        TextView sdef2 = findViewById(R.id.text25);
+        TextView spd2 = findViewById(R.id.text26);
+
+        // views for showing the data of the third most matched pokemon
+        ImageView image3 = findViewById(R.id.image3);
+        TextView name3 = findViewById(R.id.text30);
+        TextView hp3 = findViewById(R.id.text31);
+        TextView atk3 = findViewById(R.id.text32);
+        TextView def3 = findViewById(R.id.text33);
+        TextView satk3 = findViewById(R.id.text34);
+        TextView sdef3 = findViewById(R.id.text35);
+        TextView spd3 = findViewById(R.id.text36);
+
+        // shows results
+        name1.setText("1 " + Character.getName(searchCharacters()[0]));
+        hp1.setText(String.valueOf(Character.realStats(searchCharacters()[0])[0]));
+        atk1.setText(String.valueOf(Character.realStats(searchCharacters()[0])[1]));
+        def1.setText(String.valueOf(Character.realStats(searchCharacters()[0])[2]));
+        satk1.setText(String.valueOf(Character.realStats(searchCharacters()[0])[3]));
+        sdef1.setText(String.valueOf(Character.realStats(searchCharacters()[0])[4]));
+        spd1.setText(String.valueOf(Character.realStats(searchCharacters()[0])[5]));
+
+        name2.setText("2 " + Character.getName(searchCharacters()[1]));
+        hp2.setText(String.valueOf(Character.realStats(searchCharacters()[1])[0]));
+        atk2.setText(String.valueOf(Character.realStats(searchCharacters()[1])[1]));
+        def2.setText(String.valueOf(Character.realStats(searchCharacters()[1])[2]));
+        satk2.setText(String.valueOf(Character.realStats(searchCharacters()[1])[3]));
+        sdef2.setText(String.valueOf(Character.realStats(searchCharacters()[1])[4]));
+        spd2.setText(String.valueOf(Character.realStats(searchCharacters()[1])[5]));
+
+        name3.setText("3 " + Character.getName(searchCharacters()[2]));
+        hp3.setText(String.valueOf(Character.realStats(searchCharacters()[2])[0]));
+        atk3.setText(String.valueOf(Character.realStats(searchCharacters()[2])[1]));
+        def3.setText(String.valueOf(Character.realStats(searchCharacters()[2])[2]));
+        satk3.setText(String.valueOf(Character.realStats(searchCharacters()[2])[3]));
+        sdef3.setText(String.valueOf(Character.realStats(searchCharacters()[2])[4]));
+        spd3.setText(String.valueOf(Character.realStats(searchCharacters()[2])[5]));
 
 
-        ImageView one = findViewById(R.id.imageView01);
-        one.setImageBitmap(fromWeb("https://www.serebii.net/pokedex-sm/icon/800-u.png"));
-
-
-        // OBSELETE
-        // show a character who matches user inputs.
-        //result.setText(Character.getName(searchCharacters()[0]) + ", " + Character.getName(searchCharacters()[1]) + ", " + Character.getName(searchCharacters()[2]));
+        /*
+        // please add the code to show the pictures of pokemons in image1, 2 and 3.
+        // this is an example for my experiment. you can modify or delete if freely.
+        // activates ImageGetTask class and show the image from the URL.
+        ImageGetTask task = new ImageGetTask(image1);
+        task.execute("https://www.gstatic.com/android/market_images/web/play_logo_x2.png");
+        */
 
         //return button and screen swap
         Button next = findViewById(R.id.button02);
@@ -58,7 +93,9 @@ public class Result extends AppCompatActivity {
                 setResult(RESULT_OK, intent);
                 finish();
             }
+
         });
+
     }
 
     // helper method which computes the difference between given two int arrays.
@@ -70,16 +107,18 @@ public class Result extends AppCompatActivity {
         return result;
     }
 
-    // return three pokemons who have the closest stats to user inputs.
+    // returns indices of three pokemons who have the closest stats to user inputs.
     public int[] searchCharacters() {
 
-        // indices of three most matched pokemon
+        // maintains indices of three most matched pokemon so far
         int[] mostMatched = {0, 0, 0};
-        // difference of three most matched pokemon
+        // maintains difference of three most matched pokemon so far
         int[] mostMatchedDif = {100, 100, 100};
 
         for (int i = 0; i < Character.getLength(); i++) {
+            // computes difference between userinputs and pokemon(i)'s stats
             int dif = difference(inputs, Character.getStats(i));
+
             if (dif < mostMatchedDif[0]) {
                 mostMatched[2] = mostMatched[1];
                 mostMatched[1] = mostMatched[0];
@@ -98,25 +137,5 @@ public class Result extends AppCompatActivity {
             }
         }
         return mostMatched;
-    }
-
-    //string combination function to form usable image url link
-    public String getURL(String input) {
-        String basicURL = "https://www.serebii.net/pokedex-sm/icon/XXX.png";
-        return basicURL.replace("XXX",input);
-    }
-
-    //image setting function
-    public static Bitmap fromWeb(String url) {
-        Bitmap image;
-        try {
-            URL imageUrl = new URL(url);
-            InputStream imageIs;
-            imageIs = imageUrl.openStream();
-            image = BitmapFactory.decodeStream(imageIs);
-            return image;
-        } catch (Exception e) {
-            return null;
-        }
     }
 }
