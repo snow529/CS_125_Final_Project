@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.ImageView;
 
 public class Result extends AppCompatActivity {
 
@@ -23,6 +24,12 @@ public class Result extends AppCompatActivity {
         userInputs.setText("Return a result with " + inputs[0] + ", " + inputs[1] + ", " + inputs[2] + ", " + inputs[3] + ", " + inputs[4] + ", " + inputs[5]);
         // show a character who matches user inputs.
         result.setText(Character.getName(searchCharacters()[0]) + ", " + Character.getName(searchCharacters()[1]) + ", " + Character.getName(searchCharacters()[2]));
+
+        ImageView test = findViewById(R.id.imageView1);
+        // activate ImageGetTask class and show the image from the URL.
+        ImageGetTask task = new ImageGetTask(test);
+        task.execute("https://www.gstatic.com/android/market_images/web/play_logo_x2.png");
+
 
         //return button and screen swap
         Button next = findViewById(R.id.button02);
