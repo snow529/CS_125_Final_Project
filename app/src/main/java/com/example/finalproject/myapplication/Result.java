@@ -10,25 +10,73 @@ import android.widget.ImageView;
 
 public class Result extends AppCompatActivity {
 
-    private TextView userInputs;
-    private TextView result;
     private int inputs[];
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_1);
 
-        userInputs = findViewById(R.id.textView11);
-        result = findViewById(R.id.textView12);
         inputs = getIntent().getIntArrayExtra("STATS");
+
+        TextView userInputs = findViewById(R.id.textView11);
         userInputs.setText("Return a result with (" + inputs[0] + ", " + inputs[1] + ", " + inputs[2] + ", " + inputs[3] + ", " + inputs[4] + ", " + inputs[5] + ")");
 
-        // shows a character who matches user inputs.
-        result.setText(Character.getName(searchCharacters()[0]) + ", " + Character.getName(searchCharacters()[1]) + ", " + Character.getName(searchCharacters()[2]));
 
-        ImageView test = findViewById(R.id.imageView1);
+        ImageView image1 = findViewById(R.id.image1);
+        TextView name1 = findViewById(R.id.text10);
+        TextView hp1 = findViewById(R.id.text11);
+        TextView atk1 = findViewById(R.id.text12);
+        TextView def1 = findViewById(R.id.text13);
+        TextView satk1 = findViewById(R.id.text14);
+        TextView sdef1 = findViewById(R.id.text15);
+        TextView spd1 = findViewById(R.id.text16);
+
+        ImageView image2 = findViewById(R.id.image2);
+        TextView name2 = findViewById(R.id.text20);
+        TextView hp2 = findViewById(R.id.text21);
+        TextView atk2 = findViewById(R.id.text22);
+        TextView def2 = findViewById(R.id.text23);
+        TextView satk2 = findViewById(R.id.text24);
+        TextView sdef2 = findViewById(R.id.text25);
+        TextView spd2 = findViewById(R.id.text26);
+
+        ImageView image3 = findViewById(R.id.image3);
+        TextView name3 = findViewById(R.id.text30);
+        TextView hp3 = findViewById(R.id.text31);
+        TextView atk3 = findViewById(R.id.text32);
+        TextView def3 = findViewById(R.id.text33);
+        TextView satk3 = findViewById(R.id.text34);
+        TextView sdef3 = findViewById(R.id.text35);
+        TextView spd3 = findViewById(R.id.text36);
+
+        // shows results
+        name1.setText(Character.getName(searchCharacters()[0]));
+        hp1.setText(String.valueOf(Character.realStats(searchCharacters()[0])[0]));
+        atk1.setText(String.valueOf(Character.realStats(searchCharacters()[0])[1]));
+        def1.setText(String.valueOf(Character.realStats(searchCharacters()[0])[2]));
+        satk1.setText(String.valueOf(Character.realStats(searchCharacters()[0])[3]));
+        sdef1.setText(String.valueOf(Character.realStats(searchCharacters()[0])[4]));
+        spd1.setText(String.valueOf(Character.realStats(searchCharacters()[0])[5]));
+
+        name2.setText(Character.getName(searchCharacters()[1]));
+        hp2.setText(String.valueOf(Character.realStats(searchCharacters()[1])[0]));
+        atk2.setText(String.valueOf(Character.realStats(searchCharacters()[1])[1]));
+        def2.setText(String.valueOf(Character.realStats(searchCharacters()[1])[2]));
+        satk2.setText(String.valueOf(Character.realStats(searchCharacters()[1])[3]));
+        sdef2.setText(String.valueOf(Character.realStats(searchCharacters()[1])[4]));
+        spd2.setText(String.valueOf(Character.realStats(searchCharacters()[1])[5]));
+
+        name3.setText(Character.getName(searchCharacters()[2]));
+        hp3.setText(String.valueOf(Character.realStats(searchCharacters()[2])[0]));
+        atk3.setText(String.valueOf(Character.realStats(searchCharacters()[2])[1]));
+        def3.setText(String.valueOf(Character.realStats(searchCharacters()[2])[2]));
+        satk3.setText(String.valueOf(Character.realStats(searchCharacters()[2])[3]));
+        sdef3.setText(String.valueOf(Character.realStats(searchCharacters()[2])[4]));
+        spd3.setText(String.valueOf(Character.realStats(searchCharacters()[2])[5]));
+
+
         // activates ImageGetTask class and show the image from the URL.
-        ImageGetTask task = new ImageGetTask(test);
+        ImageGetTask task = new ImageGetTask(image1);
         task.execute("https://www.gstatic.com/android/market_images/web/play_logo_x2.png");
 
 
