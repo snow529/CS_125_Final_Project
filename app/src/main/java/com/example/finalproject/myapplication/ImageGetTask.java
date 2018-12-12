@@ -11,7 +11,6 @@ import java.io.IOException;
 
 
 // this class enables us to show the picture from the internet.
-// I did not understand at all what has happened in this class, though.
 public class ImageGetTask extends AsyncTask<String, Void, Bitmap> {
     private ImageView image;
 

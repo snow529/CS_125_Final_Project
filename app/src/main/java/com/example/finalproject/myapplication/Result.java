@@ -96,7 +96,6 @@ public class Result extends AppCompatActivity {
         sdef3.setText(String.valueOf(Character.realStats(searchCharacters()[2])[4]));
         spd3.setText(String.valueOf(Character.realStats(searchCharacters()[2])[5]));
 
-        /** code for 4 and 5, edit this when you get the search function to return 5 results
         name4.setText("4 " + Character.getName(searchCharacters()[3]));
         hp4.setText(String.valueOf(Character.realStats(searchCharacters()[3])[0]));
         atk4.setText(String.valueOf(Character.realStats(searchCharacters()[3])[1]));
@@ -112,23 +111,18 @@ public class Result extends AppCompatActivity {
         satk5.setText(String.valueOf(Character.realStats(searchCharacters()[4])[3]));
         sdef5.setText(String.valueOf(Character.realStats(searchCharacters()[4])[4]));
         spd5.setText(String.valueOf(Character.realStats(searchCharacters()[4])[5]));
-         */
 
-        // please add the code to show the pictures of pokemons in image1, 2 and 3.
-        // this is an example for my experiment. you can modify or delete if freely.
-        // activates ImageGetTask class and show the image from the URL.
+        // activates ImageGetTask class and show the image from the internet.
         ImageGetTask task1 = new ImageGetTask(image1);
         task1.execute(getURL(Character.getIndex(searchCharacters()[0])));
         ImageGetTask task2 = new ImageGetTask(image2);
         task2.execute(getURL(Character.getIndex(searchCharacters()[1])));
         ImageGetTask task3 = new ImageGetTask(image3);
         task3.execute(getURL(Character.getIndex(searchCharacters()[2])));
-        /** code for future row 4 and 5, edit this when you are done
         ImageGetTask task4 = new ImageGetTask(image4);
-        task2.execute(getURL(Character.getIndex(searchCharacters()[3])));
+        task4.execute(getURL(Character.getIndex(searchCharacters()[3])));
         ImageGetTask task5 = new ImageGetTask(image5);
-        task3.execute(getURL(Character.getIndex(searchCharacters()[4])));
-        */
+        task5.execute(getURL(Character.getIndex(searchCharacters()[4])));
 
 
         //return button and screen swap
@@ -161,30 +155,50 @@ public class Result extends AppCompatActivity {
     // returns indices of three pokemons who have the closest stats to user inputs.
     public int[] searchCharacters() {
 
-        // maintains indices of three most matched pokemon so far
-        int[] mostMatched = {0, 0, 0};
-        // maintains difference of three most matched pokemon so far
-        int[] mostMatchedDif = {100, 100, 100};
+        // maintains indices of five most matched pokemon so far
+        int[] mostMatched = {0, 0, 0, 0, 0};
+        // maintains difference of five most matched pokemon so far
+        int[] mostMatchedDif = {100, 100, 100, 100, 100};
 
         for (int i = 0; i < Character.getLength(); i++) {
             // computes difference between userinputs and pokemon(i)'s stats
             int dif = difference(inputs, Character.getStats(i));
 
             if (dif < mostMatchedDif[0]) {
+                mostMatched[4] = mostMatched[3];
+                mostMatched[3] = mostMatched[2];
                 mostMatched[2] = mostMatched[1];
                 mostMatched[1] = mostMatched[0];
                 mostMatched[0] = i;
+                mostMatchedDif[4] = mostMatchedDif[3];
+                mostMatchedDif[3] = mostMatchedDif[2];
                 mostMatchedDif[2] = mostMatchedDif[1];
                 mostMatchedDif[1] = mostMatchedDif[0];
                 mostMatchedDif[0] = dif;
             } else if (dif < mostMatchedDif[1]) {
+                mostMatched[4] = mostMatched[3];
+                mostMatched[3] = mostMatched[2];
                 mostMatched[2] = mostMatched[1];
                 mostMatched[1] = i;
+                mostMatchedDif[4] = mostMatchedDif[3];
+                mostMatchedDif[3] = mostMatchedDif[2];
                 mostMatchedDif[2] = mostMatchedDif[1];
                 mostMatchedDif[1] = dif;
             } else if (dif < mostMatchedDif[2]) {
+                mostMatched[4] = mostMatched[3];
+                mostMatched[3] = mostMatched[2];
                 mostMatched[2] = i;
+                mostMatchedDif[4] = mostMatchedDif[3];
+                mostMatchedDif[3] = mostMatchedDif[2];
                 mostMatchedDif[2] = dif;
+            } else if (dif < mostMatchedDif[3]) {
+                mostMatched[4] = mostMatched[3];
+                mostMatched[3] = i;
+                mostMatchedDif[4] = mostMatchedDif[3];
+                mostMatchedDif[3] = dif;
+            } else if (dif < mostMatchedDif[4]) {
+                mostMatched[4] = i;
+                mostMatchedDif[4] = dif;
             }
         }
         return mostMatched;
