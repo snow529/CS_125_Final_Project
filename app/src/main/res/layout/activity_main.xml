@@ -27,7 +27,7 @@
 
     <TextView
         android:id="@+id/textView11"
-        android:layout_width="wrap_content"
+        android:layout_width="130dp"
         android:layout_height="50dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
@@ -38,12 +38,13 @@
         android:textColor="#000000"
         android:textSize="24sp"
         android:textStyle=""
+        android:background="@android:color/holo_green_light"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView12"
-        android:layout_width="wrap_content"
+        android:layout_width="130dp"
         android:layout_height="50dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
@@ -54,12 +55,13 @@
         android:textColor="#000000"
         android:textSize="24sp"
         android:textStyle=""
+        android:background="@android:color/holo_red_light"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView13"
-        android:layout_width="wrap_content"
+        android:layout_width="130dp"
         android:layout_height="50dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
@@ -70,12 +72,13 @@
         android:textColor="#000000"
         android:textSize="24sp"
         android:textStyle=""
+        android:background="@android:color/holo_blue_light"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView14"
-        android:layout_width="wrap_content"
+        android:layout_width="130dp"
         android:layout_height="50dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
@@ -86,12 +89,13 @@
         android:textColor="#000000"
         android:textSize="24sp"
         android:textStyle=""
+        android:background="@android:color/holo_orange_light"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView15"
-        android:layout_width="wrap_content"
+        android:layout_width="130dp"
         android:layout_height="50dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
@@ -102,12 +106,13 @@
         android:textColor="#000000"
         android:textSize="24sp"
         android:textStyle=""
+        android:background="@android:color/holo_blue_bright"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView16"
-        android:layout_width="wrap_content"
+        android:layout_width="130dp"
         android:layout_height="50dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
@@ -118,6 +123,7 @@
         android:textColor="#000000"
         android:textSize="24sp"
         android:textStyle=""
+        android:background="@android:color/holo_purple"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -131,6 +137,7 @@
         android:layout_weight="1"
         android:rating="0"
         android:stepSize="1"
+        android:background="@android:color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -144,6 +151,7 @@
         android:layout_weight="1"
         android:stepSize="1"
         android:rating="0"
+        android:background="@android:color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -157,6 +165,7 @@
         android:layout_weight="1"
         android:stepSize="1"
         android:rating="0"
+        android:background="@android:color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -170,6 +179,7 @@
         android:layout_weight="1"
         android:stepSize="1"
         android:rating="0"
+        android:background="@android:color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -183,6 +193,7 @@
         android:layout_weight="1"
         android:stepSize="1"
         android:rating="0"
+        android:background="@android:color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -196,6 +207,7 @@
         android:layout_weight="1"
         android:stepSize="1"
         android:rating="0"
+        android:background="@android:color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

@@ -19,7 +19,7 @@ public class Result extends AppCompatActivity {
         inputs = getIntent().getIntArrayExtra("STATS");
 
         TextView userInputs = findViewById(R.id.textView11);
-        userInputs.setText("Return a result with (" + inputs[0] + ", " + inputs[1] + ", " + inputs[2] + ", " + inputs[3] + ", " + inputs[4] + ", " + inputs[5] + ")");
+        userInputs.setText("Your match for " + inputs[0] + ", " + inputs[1] + ", " + inputs[2] + ", " + inputs[3] + ", " + inputs[4] + ", " + inputs[5] + " are");
 
         // views for showing the data of the most matched pokemon
         ImageView image1 = findViewById(R.id.image1);
@@ -51,6 +51,26 @@ public class Result extends AppCompatActivity {
         TextView sdef3 = findViewById(R.id.text35);
         TextView spd3 = findViewById(R.id.text36);
 
+        // views for showing the data of the fourth most matched pokemon
+        ImageView image4 = findViewById(R.id.image4);
+        TextView name4 = findViewById(R.id.text40);
+        TextView hp4 = findViewById(R.id.text41);
+        TextView atk4 = findViewById(R.id.text42);
+        TextView def4 = findViewById(R.id.text43);
+        TextView satk4 = findViewById(R.id.text44);
+        TextView sdef4 = findViewById(R.id.text45);
+        TextView spd4 = findViewById(R.id.text46);
+
+        // views for showing the data of the fifth most matched pokemon
+        ImageView image5 = findViewById(R.id.image5);
+        TextView name5 = findViewById(R.id.text50);
+        TextView hp5 = findViewById(R.id.text51);
+        TextView atk5 = findViewById(R.id.text52);
+        TextView def5 = findViewById(R.id.text53);
+        TextView satk5 = findViewById(R.id.text54);
+        TextView sdef5 = findViewById(R.id.text55);
+        TextView spd5 = findViewById(R.id.text56);
+
         // shows results
         name1.setText("1 " + Character.getName(searchCharacters()[0]));
         hp1.setText(String.valueOf(Character.realStats(searchCharacters()[0])[0]));
@@ -76,14 +96,40 @@ public class Result extends AppCompatActivity {
         sdef3.setText(String.valueOf(Character.realStats(searchCharacters()[2])[4]));
         spd3.setText(String.valueOf(Character.realStats(searchCharacters()[2])[5]));
 
+        /** code for 4 and 5, edit this when you get the search function to return 5 results
+        name4.setText("4 " + Character.getName(searchCharacters()[3]));
+        hp4.setText(String.valueOf(Character.realStats(searchCharacters()[3])[0]));
+        atk4.setText(String.valueOf(Character.realStats(searchCharacters()[3])[1]));
+        def4.setText(String.valueOf(Character.realStats(searchCharacters()[3])[2]));
+        satk4.setText(String.valueOf(Character.realStats(searchCharacters()[3])[3]));
+        sdef4.setText(String.valueOf(Character.realStats(searchCharacters()[3])[4]));
+        spd4.setText(String.valueOf(Character.realStats(searchCharacters()[3])[5]));
 
-        /*
+        name5.setText("5 " + Character.getName(searchCharacters()[4]));
+        hp5.setText(String.valueOf(Character.realStats(searchCharacters()[4])[0]));
+        atk5.setText(String.valueOf(Character.realStats(searchCharacters()[4])[1]));
+        def5.setText(String.valueOf(Character.realStats(searchCharacters()[4])[2]));
+        satk5.setText(String.valueOf(Character.realStats(searchCharacters()[4])[3]));
+        sdef5.setText(String.valueOf(Character.realStats(searchCharacters()[4])[4]));
+        spd5.setText(String.valueOf(Character.realStats(searchCharacters()[4])[5]));
+         */
+
         // please add the code to show the pictures of pokemons in image1, 2 and 3.
         // this is an example for my experiment. you can modify or delete if freely.
         // activates ImageGetTask class and show the image from the URL.
-        ImageGetTask task = new ImageGetTask(image1);
-        task.execute("https://www.gstatic.com/android/market_images/web/play_logo_x2.png");
+        ImageGetTask task1 = new ImageGetTask(image1);
+        task1.execute(getURL(Character.getIndex(searchCharacters()[0])));
+        ImageGetTask task2 = new ImageGetTask(image2);
+        task2.execute(getURL(Character.getIndex(searchCharacters()[1])));
+        ImageGetTask task3 = new ImageGetTask(image3);
+        task3.execute(getURL(Character.getIndex(searchCharacters()[2])));
+        /** code for future row 4 and 5, edit this when you are done
+        ImageGetTask task4 = new ImageGetTask(image4);
+        task2.execute(getURL(Character.getIndex(searchCharacters()[3])));
+        ImageGetTask task5 = new ImageGetTask(image5);
+        task3.execute(getURL(Character.getIndex(searchCharacters()[4])));
         */
+
 
         //return button and screen swap
         Button next = findViewById(R.id.button02);
@@ -96,6 +142,11 @@ public class Result extends AppCompatActivity {
 
         });
 
+    }
+    //url function for the image
+    public String getURL(String input) {
+        String baseURL = "https://www.serebii.net/sunmoon/pokemon/XXX.png";
+        return baseURL.replace("XXX", input);
     }
 
     // helper method which computes the difference between given two int arrays.
