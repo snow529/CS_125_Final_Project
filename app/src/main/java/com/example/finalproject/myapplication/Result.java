@@ -21,7 +21,7 @@ public class Result extends AppCompatActivity {
         TextView userInputs = findViewById(R.id.textView11);
         userInputs.setText("Return a result with (" + inputs[0] + ", " + inputs[1] + ", " + inputs[2] + ", " + inputs[3] + ", " + inputs[4] + ", " + inputs[5] + ")");
 
-
+        // views for showing the data of the most matched pokemon
         ImageView image1 = findViewById(R.id.image1);
         TextView name1 = findViewById(R.id.text10);
         TextView hp1 = findViewById(R.id.text11);
@@ -31,6 +31,7 @@ public class Result extends AppCompatActivity {
         TextView sdef1 = findViewById(R.id.text15);
         TextView spd1 = findViewById(R.id.text16);
 
+        // views for showing the data of the second most matched pokemon
         ImageView image2 = findViewById(R.id.image2);
         TextView name2 = findViewById(R.id.text20);
         TextView hp2 = findViewById(R.id.text21);
@@ -40,6 +41,7 @@ public class Result extends AppCompatActivity {
         TextView sdef2 = findViewById(R.id.text25);
         TextView spd2 = findViewById(R.id.text26);
 
+        // views for showing the data of the third most matched pokemon
         ImageView image3 = findViewById(R.id.image3);
         TextView name3 = findViewById(R.id.text30);
         TextView hp3 = findViewById(R.id.text31);
@@ -50,7 +52,7 @@ public class Result extends AppCompatActivity {
         TextView spd3 = findViewById(R.id.text36);
 
         // shows results
-        name1.setText(Character.getName(searchCharacters()[0]));
+        name1.setText("1 " + Character.getName(searchCharacters()[0]));
         hp1.setText(String.valueOf(Character.realStats(searchCharacters()[0])[0]));
         atk1.setText(String.valueOf(Character.realStats(searchCharacters()[0])[1]));
         def1.setText(String.valueOf(Character.realStats(searchCharacters()[0])[2]));
@@ -58,7 +60,7 @@ public class Result extends AppCompatActivity {
         sdef1.setText(String.valueOf(Character.realStats(searchCharacters()[0])[4]));
         spd1.setText(String.valueOf(Character.realStats(searchCharacters()[0])[5]));
 
-        name2.setText(Character.getName(searchCharacters()[1]));
+        name2.setText("2 " + Character.getName(searchCharacters()[1]));
         hp2.setText(String.valueOf(Character.realStats(searchCharacters()[1])[0]));
         atk2.setText(String.valueOf(Character.realStats(searchCharacters()[1])[1]));
         def2.setText(String.valueOf(Character.realStats(searchCharacters()[1])[2]));
@@ -66,7 +68,7 @@ public class Result extends AppCompatActivity {
         sdef2.setText(String.valueOf(Character.realStats(searchCharacters()[1])[4]));
         spd2.setText(String.valueOf(Character.realStats(searchCharacters()[1])[5]));
 
-        name3.setText(Character.getName(searchCharacters()[2]));
+        name3.setText("3 " + Character.getName(searchCharacters()[2]));
         hp3.setText(String.valueOf(Character.realStats(searchCharacters()[2])[0]));
         atk3.setText(String.valueOf(Character.realStats(searchCharacters()[2])[1]));
         def3.setText(String.valueOf(Character.realStats(searchCharacters()[2])[2]));
@@ -75,6 +77,8 @@ public class Result extends AppCompatActivity {
         spd3.setText(String.valueOf(Character.realStats(searchCharacters()[2])[5]));
 
 
+        // please add the code to show the pictures of pokemons in image1, 2 and 3.
+        // this is an example for my experiment. you can modify or delete if freely.
         // activates ImageGetTask class and show the image from the URL.
         ImageGetTask task = new ImageGetTask(image1);
         task.execute("https://www.gstatic.com/android/market_images/web/play_logo_x2.png");
