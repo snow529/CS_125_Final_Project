@@ -21,7 +21,7 @@ public class Result extends AppCompatActivity {
         userInputs = findViewById(R.id.textView11);
         result = findViewById(R.id.textView12);
         inputs = getIntent().getIntArrayExtra("STATS");
-        userInputs.setText("Return a result with " + inputs[0] + ", " + inputs[1] + ", " + inputs[2] + ", " + inputs[3] + ", " + inputs[4] + ", " + inputs[5]);
+        userInputs.setText("Return a result with (" + inputs[0] + ", " + inputs[1] + ", " + inputs[2] + ", " + inputs[3] + ", " + inputs[4] + ", " + inputs[5] + ")");
 
         // shows a character who matches user inputs.
         result.setText(Character.getName(searchCharacters()[0]) + ", " + Character.getName(searchCharacters()[1]) + ", " + Character.getName(searchCharacters()[2]));
