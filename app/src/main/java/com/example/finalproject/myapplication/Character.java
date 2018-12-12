@@ -563,13 +563,13 @@ public class Character {
             int value = realStats(index)[i];
             if (value >= 0 && value <= 49) {
                 stats[i] = 0;
-            } else if (value >= 50 && value <= 74) {
+            } else if (value <= 74) {
                 stats[i] = 1;
-            } else if (value >= 75 && value <= 99) {
+            } else if (value <= 99) {
                 stats[i] = 2;
-            } else if (value >= 100 && value <= 124) {
+            } else if (value <= 124) {
                 stats[i] = 3;
-            } else if (value >= 125 && value <= 149) {
+            } else if (value <= 149) {
                 stats[i] = 4;
             } else {
                 stats[i] = 5;
@@ -579,13 +579,13 @@ public class Character {
         int value = realStats(index)[5];
         if (value >= 0 && value <= 29) {
             stats[5] = 0;
-        } else if (value >= 30 && value <= 54) {
+        } else if (value <= 54) {
             stats[5] = 1;
-        } else if (value >= 55 && value <= 79) {
+        } else if (value <= 79) {
             stats[5] = 2;
-        } else if (value >= 80 && value <= 104) {
+        } else if (value <= 104) {
             stats[5] = 3;
-        } else if (value >= 105 && value <= 129) {
+        } else if (value <= 129) {
             stats[5] = 4;
         } else {
             stats[5] = 5;

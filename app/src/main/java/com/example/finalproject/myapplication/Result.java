@@ -11,7 +11,7 @@ public class Result extends AppCompatActivity {
 
     private TextView userInputs;
     private TextView result;
-    int inputs[];
+    private int inputs[];
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,7 +22,7 @@ public class Result extends AppCompatActivity {
         inputs = getIntent().getIntArrayExtra("STATS");
         userInputs.setText("Return a result with " + inputs[0] + ", " + inputs[1] + ", " + inputs[2] + ", " + inputs[3] + ", " + inputs[4] + ", " + inputs[5]);
         // show a character who matches user inputs.
-        result.setText("length is " + Character.getLength());
+        result.setText(Character.getName(searchCharacters()[0]) + ", " + Character.getName(searchCharacters()[1]) + ", " + Character.getName(searchCharacters()[2]));
 
         //return button and screen swap
         Button next = findViewById(R.id.button02);
@@ -46,12 +46,33 @@ public class Result extends AppCompatActivity {
         return result;
     }
 
-    // return a character who has the closest stats to user inputs.
-    public String searchCharacters(int[] inputs) {
+    // return three pokemons who have the closest stats to user inputs.
+    public int[] searchCharacters() {
+
+        // indices of three most matched pokemon
+        int[] mostMatched = {0, 0, 0};
+        // difference of three most matched pokemon
+        int[] mostMatchedDif = {100, 100, 100};
+
         for (int i = 0; i < Character.getLength(); i++) {
             int dif = difference(inputs, Character.getStats(i));
+            if (dif < mostMatchedDif[0]) {
+                mostMatched[2] = mostMatched[1];
+                mostMatched[1] = mostMatched[0];
+                mostMatched[0] = i;
+                mostMatchedDif[2] = mostMatchedDif[1];
+                mostMatchedDif[1] = mostMatchedDif[0];
+                mostMatchedDif[0] = dif;
+            } else if (dif < mostMatchedDif[1]) {
+                mostMatched[2] = mostMatched[1];
+                mostMatched[1] = i;
+                mostMatchedDif[2] = mostMatchedDif[1];
+                mostMatchedDif[1] = dif;
+            } else if (dif < mostMatchedDif[2]) {
+                mostMatched[2] = i;
+                mostMatchedDif[2] = dif;
+            }
         }
-        return "Not Found";
+        return mostMatched;
     }
-
 }
