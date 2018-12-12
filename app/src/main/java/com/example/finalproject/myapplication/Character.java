@@ -546,7 +546,7 @@ public class Character {
         return pokemons[index][0];
     }
 
-    // get pokemon's stats[hp, atk, def, satk, sdef, spd]
+    // gets pokemon's stats[hp, atk, def, satk, sdef, spd]
     public static int[] realStats(int index) {
         int[] stats = new int[6];
         for (int i = 0; i < 6; i++) {
@@ -555,10 +555,10 @@ public class Character {
         return stats;
     }
 
-    // get pokemon's stats in 0-5 ratings
+    // gets pokemon's stats in 0-5 ratings
     public static int[] getStats(int index) {
         int[] stats = new int[6];
-        // convert hp, atk, def, satk and sdef into 0-5 ratings
+        // converts hp, atk, def, satk and sdef into 0-5 ratings
         for (int i = 0; i < 5; i++) {
             int value = realStats(index)[i];
             if (value >= 0 && value <= 49) {
@@ -575,7 +575,7 @@ public class Character {
                 stats[i] = 5;
             }
         }
-        // convert speed into 0-5 ratings.
+        // converts speed into 0-5 ratings.
         int value = realStats(index)[5];
         if (value >= 0 && value <= 29) {
             stats[5] = 0;

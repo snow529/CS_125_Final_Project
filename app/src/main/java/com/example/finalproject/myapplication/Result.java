@@ -22,11 +22,12 @@ public class Result extends AppCompatActivity {
         result = findViewById(R.id.textView12);
         inputs = getIntent().getIntArrayExtra("STATS");
         userInputs.setText("Return a result with " + inputs[0] + ", " + inputs[1] + ", " + inputs[2] + ", " + inputs[3] + ", " + inputs[4] + ", " + inputs[5]);
-        // show a character who matches user inputs.
+
+        // shows a character who matches user inputs.
         result.setText(Character.getName(searchCharacters()[0]) + ", " + Character.getName(searchCharacters()[1]) + ", " + Character.getName(searchCharacters()[2]));
 
         ImageView test = findViewById(R.id.imageView1);
-        // activate ImageGetTask class and show the image from the URL.
+        // activates ImageGetTask class and show the image from the URL.
         ImageGetTask task = new ImageGetTask(test);
         task.execute("https://www.gstatic.com/android/market_images/web/play_logo_x2.png");
 
@@ -53,16 +54,18 @@ public class Result extends AppCompatActivity {
         return result;
     }
 
-    // return three pokemons who have the closest stats to user inputs.
+    // returns indices of three pokemons who have the closest stats to user inputs.
     public int[] searchCharacters() {
 
-        // indices of three most matched pokemon
+        // maintains indices of three most matched pokemon so far
         int[] mostMatched = {0, 0, 0};
-        // difference of three most matched pokemon
+        // maintains difference of three most matched pokemon so far
         int[] mostMatchedDif = {100, 100, 100};
 
         for (int i = 0; i < Character.getLength(); i++) {
+            // computes difference between userinputs and pokemon(i)'s stats
             int dif = difference(inputs, Character.getStats(i));
+
             if (dif < mostMatchedDif[0]) {
                 mostMatched[2] = mostMatched[1];
                 mostMatched[1] = mostMatched[0];
