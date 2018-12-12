@@ -77,12 +77,13 @@ public class Result extends AppCompatActivity {
         spd3.setText(String.valueOf(Character.realStats(searchCharacters()[2])[5]));
 
 
+        /*
         // please add the code to show the pictures of pokemons in image1, 2 and 3.
         // this is an example for my experiment. you can modify or delete if freely.
         // activates ImageGetTask class and show the image from the URL.
         ImageGetTask task = new ImageGetTask(image1);
         task.execute("https://www.gstatic.com/android/market_images/web/play_logo_x2.png");
-
+        */
 
         //return button and screen swap
         Button next = findViewById(R.id.button02);
