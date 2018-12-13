@@ -79,7 +79,7 @@
             android:layout_height="40dp"
             android:background="@android:color/holo_orange_light"
             android:gravity="center_horizontal"
-            android:text="S-Atk"
+            android:text="S.Atk"
             android:textSize="18sp" />
 
         <TextView
@@ -88,7 +88,7 @@
             android:layout_height="40dp"
             android:background="@android:color/holo_blue_bright"
             android:gravity="center_horizontal"
-            android:text="S-Def"
+            android:text="S.Def"
             android:textSize="18sp" />
 
         <TextView
